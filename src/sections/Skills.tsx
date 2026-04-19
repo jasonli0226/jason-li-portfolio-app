@@ -1,17 +1,21 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion, type Variants } from 'framer-motion'
 import { Badge } from '../components/ui/badge'
 import FadeIn from '../components/FadeIn'
 import SectionHeading from '../components/SectionHeading'
 import { skillCategories } from '../data/skills'
 
-const chipContainer = {
+const chipContainer: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.03 } },
 }
 
-const chipItem = {
+const chipItem: Variants = {
   hidden: { opacity: 0, y: 6 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: 'easeOut' } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.3, ease: 'easeOut' as const },
+  },
 }
 
 export default function Skills() {

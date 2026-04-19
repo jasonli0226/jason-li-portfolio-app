@@ -1,5 +1,4 @@
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
 
 const BLOBS = [
   {
@@ -35,7 +34,6 @@ const BLOBS = [
 ] as const
 
 export default function AuroraBackdrop() {
-  const containerRef = useRef<HTMLDivElement>(null)
   const shouldReduceMotion = useReducedMotion()
   const { scrollY } = useScroll()
 
@@ -49,7 +47,6 @@ export default function AuroraBackdrop() {
 
   return (
     <div
-      ref={containerRef}
       aria-hidden
       className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
     >

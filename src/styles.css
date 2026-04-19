@@ -271,6 +271,7 @@ a:hover {
 
 .flagship-border {
   position: relative;
+  isolation: isolate;
   background-clip: padding-box;
 }
 
