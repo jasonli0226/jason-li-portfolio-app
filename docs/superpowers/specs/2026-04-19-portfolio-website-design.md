@@ -10,14 +10,14 @@ Build a single-page portfolio for Jason Li (AI Data Architect / Senior Data Scie
 
 ## Confirmed decisions (Q&A from brainstorming)
 
-| # | Decision |
-|---|----------|
-| 1 | Single scroll page on `/`. Delete `src/routes/about.tsx`. |
-| 2 | No "Download CV" button. Use a GitHub link in its place (Hero + Navbar). |
-| 3 | No `motion`/`framer-motion`. Use a `useInView` IntersectionObserver hook + Tailwind transitions for fade/slide-up. |
-| 4 | About-section photo: SVG/CSS placeholder with initials `JL`. Swappable later. |
-| 5 | Contact: `mailto:` + LinkedIn/GitHub icons. No form. |
-| 6 | Projects: show all CV bullets directly on cards. No "View Details" modal. |
+| #   | Decision                                                                                                           |
+| --- | ------------------------------------------------------------------------------------------------------------------ |
+| 1   | Single scroll page on `/`. Delete `src/routes/about.tsx`.                                                          |
+| 2   | No "Download CV" button. Use a GitHub link in its place (Hero + Navbar).                                           |
+| 3   | No `motion`/`framer-motion`. Use a `useInView` IntersectionObserver hook + Tailwind transitions for fade/slide-up. |
+| 4   | About-section photo: SVG/CSS placeholder with initials `JL`. Swappable later.                                      |
+| 5   | Contact: `mailto:` + LinkedIn/GitHub icons. No form.                                                               |
+| 6   | Projects: show all CV bullets directly on cards. No "View Details" modal.                                          |
 
 ## Architecture
 
@@ -95,6 +95,7 @@ src/
 ## Section-by-section content
 
 ### 1. Hero (`#hero`)
+
 - Full-viewport min-height (`min-h-[90vh]`).
 - `<h1>` "LI KWAN HO JASON" — Inter 800, large clamp-sized (clamp(2.5rem, 6vw, 5rem)).
 - Subtitle "AI Data Architect | Senior Data Scientist" — gradient cyan→blue text.
@@ -106,11 +107,13 @@ src/
 - Background: radial cyan glow + grid pattern.
 
 ### 2. About (`#about`)
+
 - 2-column desktop / stacked mobile.
 - Left: 256×256 rounded square with gradient cyan→blue fill, big serif "JL" centered. Class `bg-gradient-to-br from-cyan-500 to-blue-600`.
 - Right: bio paragraph (CV summary + International collaborator sentence).
 
 ### 3. Skills (`#skills`)
+
 - 2×2 responsive grid (1 col mobile, 2 col tablet+).
 - Categories (verbatim from CV):
   - **AI Data Architecture & GenAI** — icon: `Sparkles`
@@ -120,11 +123,13 @@ src/
 - Each item rendered as a shadcn `Badge` (variant `outline` with cyan hover ring).
 
 ### 4. Experience (`#experience`)
+
 - Vertical timeline with left-side rail (`absolute` line + dots).
 - 3 role cards (most recent first): XTRA Sensing → Tecky Academy → Myndar Co.
 - Each card shows: role · company · dates · bullets (CV verbatim, 2–3 strongest per role).
 
 ### 5. Projects (`#projects`)
+
 - Two subsections with kicker headings:
 
   **LLM, Agentic & Autonomous AI**
@@ -137,17 +142,21 @@ src/
   - **LUCID (XAI for PCA-Reduced Feature Spaces)** — card with `HKIE 2026` badge. Badges: `XAI`, `SHAP`, `PCA`, `Explainability`.
 
 ### 6. Research (`#research`)
+
 - 3-col grid (1 col mobile), smaller cards, no badges.
 - Multivariate Time Series (WPI USA) · Data In-painting (MSc) · Image Captioning (FYP).
 
 ### 7. Awards (`#awards`)
+
 - 2-col layout: Awards left (6 items as a clean list with year), Publications right (2 items, DOI link for META paper).
 
 ### 8. Contact (`#contact`)
+
 - Centered. Large primary button: "Email me" → `mailto:jasonli72016@gmail.com`.
 - Below: 3 icon links (Mail, Linkedin, Github) — `48px` clickable areas.
 
 ### Footer
+
 - Copyright `© 2026 Li Kwan Ho Jason`.
 - Social icons row.
 - Remove "Built with TanStack Start" tag.
@@ -197,6 +206,7 @@ type Project = {
 ## SEO / meta
 
 In `__root.tsx`:
+
 - `<title>Jason Li – AI Data Architect | Senior Data Scientist</title>`
 - `<meta name="description" content="..." />` — first sentence of CV summary
 - `<meta property="og:title" />`, `<meta property="og:description" />`
@@ -215,6 +225,7 @@ In `__root.tsx`:
 ## Testing scope
 
 Per project rules (80% coverage target), but content components are mostly static markup. Practical scope:
+
 - **Unit:** `useInView` hook (mock IntersectionObserver), data shape exports (snapshot), `cn()` util untouched.
 - **Component:** Render smoke tests for each section (renders without error, shows expected headings/data).
 - **No E2E** for v1 (no critical interactive flows beyond anchor scrolling and theme toggle).

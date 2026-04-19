@@ -1,4 +1,4 @@
-```markdown
+````markdown
 # CLAUDE.md - Personal Portfolio Website
 
 **Project:** Jason Li – AI Data Architect Portfolio  
@@ -16,6 +16,8 @@
   npm install framer-motion lucide-react
   npm install -D @types/node
   ```
+````
+
 - Use modern React patterns (functional components, hooks, TypeScript).
 - Project must be fully responsive (mobile-first).
 
@@ -32,6 +34,7 @@
 ## 3. Page Sections (Single Page Application)
 
 ### Hero Section
+
 - Full-width hero with name: **LI KWAN HO JASON**
 - Title: **AI Data Architect | Senior Data Scientist**
 - Short summary (copy from CV):
@@ -44,10 +47,12 @@
 - Subtle background: tech gradient or very faint grid pattern.
 
 ### About Me
+
 - Professional headshot (placeholder for now).
 - Short bio paragraph (reuse CV summary + add international experience).
 
 ### Skills
+
 - Exactly match the grouped skills from the CV:
   - **AI Data Architecture & GenAI**
   - **MLOps & Cloud Infrastructure**
@@ -56,6 +61,7 @@
 - Use icon + tag style with hover effects.
 
 ### Experience
+
 - Vertical timeline format.
 - Show the three roles in order (most recent first):
   1. Data Team Lead, Data Scientist – XTRA Sensing Limited (Jan 2024 – Present)
@@ -64,6 +70,7 @@
 - Include 2–3 strongest bullets per role (copy from final CV).
 
 ### Projects (Featured + All Projects)
+
 - Two main categories with headings:
 
   **LLM, Agentic & Autonomous AI**
@@ -85,12 +92,15 @@
   - “View Details” modal or expand if possible
 
 ### Research Projects
+
 - Show the three research projects (Multivariate Time Series, Data In-painting, Image Captioning) in a smaller grid.
 
 ### Awards & Publications
+
 - Clean cards/grid with all awards and the two publications from the CV.
 
 ### Contact
+
 - Email, LinkedIn, GitHub links
 - Simple contact form (optional – can use Formspree or just email link)
 - Footer with copyright and social icons
@@ -139,6 +149,7 @@ Use the **exact text** from the final CV I provided in the previous message (the
 ---
 
 **Instructions for the AI Agent:**
+
 1. Generate the complete project using the above spec.
 2. Make it look premium and senior-level (no childish animations).
 3. Prioritize Clawix as the hero project.
@@ -146,11 +157,13 @@ Use the **exact text** from the final CV I provided in the previous message (the
 5. Make sure the site is beautiful on mobile.
 
 Start building! 🚀
+
 ```
 
-Copy the entire block above and save it as **`CLAUDE.md`** in your project root.  
+Copy the entire block above and save it as **`CLAUDE.md`** in your project root.
 
-Then open Cursor (or Claude.dev) and tell it:  
+Then open Cursor (or Claude.dev) and tell it:
 > “Build the portfolio website following CLAUDE.md”
 
 Let me know when you want the exact Tailwind config or any component code to speed things up!
+```
