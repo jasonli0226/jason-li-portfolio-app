@@ -258,41 +258,6 @@ a:hover {
   }
 }
 
-/* ----- Flagship gradient border (Clawix) ----- */
-@keyframes flagship-border-spin {
-  to { transform: rotate(1turn); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .flagship-border::before {
-    animation: none !important;
-  }
-}
-
-.flagship-border {
-  position: relative;
-  isolation: isolate;
-  background-clip: padding-box;
-}
-
-.flagship-border::before {
-  content: '';
-  position: absolute;
-  inset: -1.5px;
-  z-index: -1;
-  border-radius: inherit;
-  background: conic-gradient(
-    from var(--flagship-angle, 0deg),
-    var(--accent),
-    #6366f1,
-    #a855f7,
-    #ec4899,
-    var(--accent)
-  );
-  animation: flagship-border-spin 6s linear infinite;
-  transform-origin: center;
-}
-
 /* Project card hover: lift + soft cyan glow */
 .project-card {
   transition:

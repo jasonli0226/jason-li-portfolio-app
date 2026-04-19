@@ -15,9 +15,9 @@ export default function ProjectCard({ project, variant = 'default' }: Props) {
   return (
     <div
       className={
-        'surface-card project-card relative flex h-full flex-col p-6 ' +
+        'surface-card project-card flex h-full flex-col p-6 ' +
         (isFlagship
-          ? 'flagship-border border-[var(--accent)]/40 ring-1 ring-[var(--accent)]/20'
+          ? 'border-[var(--accent)]/40 ring-1 ring-[var(--accent)]/20'
           : '')
       }
     >
