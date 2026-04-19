@@ -10,7 +10,7 @@ export const profile = {
   phone: '+852-6134-1504',
   links: {
     github: 'https://github.com/jasonli0226',
-    linkedin: 'https://www.linkedin.com/in/jasonli0226',
+    linkedin: 'https://www.linkedin.com/in/jason-li-1b5a9a27a',
   },
   education: [
     {
