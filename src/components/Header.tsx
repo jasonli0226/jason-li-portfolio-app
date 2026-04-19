@@ -1,6 +1,7 @@
 import { Github, Menu, X } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { profile } from '../data/profile'
+import { useScrolled } from '../hooks/useScrolled'
 import ThemeToggle from './ThemeToggle'
 
 const NAV_LINKS = [
@@ -15,14 +16,7 @@ const NAV_LINKS = [
 
 export default function Header() {
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  const scrolled = useScrolled(40)
 
   return (
     <header
