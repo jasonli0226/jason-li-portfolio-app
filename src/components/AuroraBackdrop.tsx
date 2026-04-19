@@ -1,49 +1,70 @@
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
+
 const BLOBS = [
   {
     token: 'var(--aurora-blob-1)',
     animation: 'aurora-drift-a 22s ease-in-out infinite',
     style: { top: '-10%', left: '-10%', width: '52%', height: '55%' },
+    parallax: 0.08,
   },
   {
     token: 'var(--aurora-blob-2)',
     animation: 'aurora-drift-b 26s ease-in-out infinite',
     style: { top: '-5%', right: '-15%', width: '50%', height: '60%' },
+    parallax: 0.12,
   },
   {
     token: 'var(--aurora-blob-3)',
     animation: 'aurora-drift-c 30s ease-in-out infinite',
     style: { top: '30%', left: '20%', width: '45%', height: '45%' },
+    parallax: 0.06,
   },
   {
     token: 'var(--aurora-blob-4)',
     animation: 'aurora-drift-d 24s ease-in-out infinite',
     style: { bottom: '-20%', right: '5%', width: '55%', height: '55%' },
+    parallax: 0.15,
   },
   {
     token: 'var(--aurora-blob-5)',
     animation: 'aurora-drift-e 28s ease-in-out infinite',
     style: { bottom: '-10%', left: '-5%', width: '40%', height: '45%' },
+    parallax: 0.1,
   },
 ] as const
 
 export default function AuroraBackdrop() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const shouldReduceMotion = useReducedMotion()
+  const { scrollY } = useScroll()
+
+  // One hook call per blob, in a fixed order — complies with Rules of Hooks.
+  const y0 = useTransform(scrollY, (v) => v * BLOBS[0].parallax)
+  const y1 = useTransform(scrollY, (v) => v * BLOBS[1].parallax)
+  const y2 = useTransform(scrollY, (v) => v * BLOBS[2].parallax)
+  const y3 = useTransform(scrollY, (v) => v * BLOBS[3].parallax)
+  const y4 = useTransform(scrollY, (v) => v * BLOBS[4].parallax)
+  const yValues = [y0, y1, y2, y3, y4]
+
   return (
     <div
+      ref={containerRef}
       aria-hidden
       className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
     >
       {BLOBS.map((blob, i) => (
-        <div
+        <motion.div
           key={i}
           className="aurora-blob"
           style={{
             ...blob.style,
             background: blob.token,
-            animation: blob.animation,
+            animation: shouldReduceMotion ? 'none' : blob.animation,
+            y: shouldReduceMotion ? 0 : yValues[i],
           }}
         />
       ))}
-      {/* Theme-aware wash softens blobs in light mode and deepens contrast in dark */}
       <div
         className="absolute inset-0"
         style={{
@@ -51,7 +72,6 @@ export default function AuroraBackdrop() {
             'radial-gradient(ellipse at 50% 30%, var(--aurora-wash), transparent 70%)',
         }}
       />
-      {/* Noise overlay to kill gradient banding */}
       <div
         className="absolute inset-0"
         style={{
