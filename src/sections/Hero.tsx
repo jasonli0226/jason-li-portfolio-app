@@ -1,5 +1,6 @@
 import { Github } from 'lucide-react'
 import { Button } from '../components/ui/button'
+import AuroraBackdrop from '../components/AuroraBackdrop'
 import FadeIn from '../components/FadeIn'
 import { profile } from '../data/profile'
 
@@ -9,14 +10,7 @@ export default function Hero() {
       id="hero"
       className="relative isolate overflow-hidden px-4 pt-24 pb-20 sm:pt-32 sm:pb-28"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{
-          background:
-            'radial-gradient(900px 480px at 50% -10%, rgba(34,211,238,0.15), transparent 60%)',
-        }}
-      />
+      <AuroraBackdrop />
       <div className="page-wrap">
         <FadeIn>
           <p className="kicker mb-4">Portfolio</p>
