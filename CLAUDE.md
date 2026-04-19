@@ -3,7 +3,7 @@
 
 **Project:** Jason Li – AI Data Architect Portfolio  
 **Tech Stack:** Vite + React + TypeScript + Tailwind CSS + Framer Motion  
-**Deployment:** Vercel  
+**Deployment:** Github Page  
 **Goal:** Build a modern, fast, professional single-page portfolio website to showcase Jason’s experience as an AI Data Architect. The site should be clean, minimalist, dark/light mode enabled, fully responsive, and highlight his strong Agentic AI, LLM, and GenAI expertise. Link this site in his CV.
 
 ## 1. Project Setup Requirements
@@ -148,22 +148,10 @@ Use the **exact text** from the final CV I provided in the previous message (the
 
 ---
 
-**Instructions for the AI Agent:**
+**Remarks**
 
 1. Generate the complete project using the above spec.
 2. Make it look premium and senior-level (no childish animations).
 3. Prioritize Clawix as the hero project.
 4. Use Tailwind classes heavily.
 5. Make sure the site is beautiful on mobile.
-
-Start building! 🚀
-
-```
-
-Copy the entire block above and save it as **`CLAUDE.md`** in your project root.
-
-Then open Cursor (or Claude.dev) and tell it:
-> “Build the portfolio website following CLAUDE.md”
-
-Let me know when you want the exact Tailwind config or any component code to speed things up!
-```
