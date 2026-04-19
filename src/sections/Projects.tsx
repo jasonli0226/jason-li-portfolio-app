@@ -6,6 +6,8 @@ import { projects } from '../data/projects'
 export default function Projects() {
   const agentic = projects.filter((p) => p.category === 'agentic')
   const aiot = projects.filter((p) => p.category === 'aiot')
+  const mlops = projects.filter((p) => p.category === 'mlops')
+  const devtools = projects.filter((p) => p.category === 'devtools')
   const clawix = agentic.find((p) => p.featured)
   const otherAgentic = agentic.filter((p) => !p.featured)
 
@@ -30,10 +32,32 @@ export default function Projects() {
           </div>
         </div>
 
-        <div>
+        <div className="mb-14">
           <p className="kicker mb-5">AIoT & Predictive Maintenance</p>
           <div className="grid gap-6 md:grid-cols-2">
             {aiot.map((p, i) => (
+              <FadeIn key={p.title} delay={(i * 100) as 0 | 100}>
+                <ProjectCard project={p} />
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+
+        <div className="mb-14">
+          <p className="kicker mb-5">MLOps & Data Infrastructure</p>
+          <div className="grid gap-6 md:grid-cols-2">
+            {mlops.map((p, i) => (
+              <FadeIn key={p.title} delay={(i * 100) as 0 | 100}>
+                <ProjectCard project={p} />
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <p className="kicker mb-5">Developer Tooling & Security</p>
+          <div className="grid gap-6 md:grid-cols-2">
+            {devtools.map((p, i) => (
               <FadeIn key={p.title} delay={(i * 100) as 0 | 100}>
                 <ProjectCard project={p} />
               </FadeIn>

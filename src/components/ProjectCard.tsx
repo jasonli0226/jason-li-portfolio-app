@@ -21,22 +21,20 @@ export default function ProjectCard({ project, variant = 'default' }: Props) {
           : '')
       }
     >
-      <div className="flex items-start justify-between gap-3">
-        <h3
-          className={
-            'font-semibold text-[var(--text)] ' +
-            (isFlagship ? 'text-xl' : 'text-lg')
-          }
-        >
-          {project.title}
-        </h3>
-        {project.award && (
-          <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-[var(--accent)]/10 px-2.5 py-1 text-xs font-medium text-[var(--accent)]">
-            <Award size={12} />
-            {project.award}
-          </span>
-        )}
-      </div>
+      <h3
+        className={
+          'font-semibold text-[var(--text)] ' +
+          (isFlagship ? 'text-xl' : 'text-lg')
+        }
+      >
+        {project.title}
+      </h3>
+      {project.award && (
+        <span className="mt-3 inline-flex w-fit items-center gap-1 rounded-full bg-[var(--accent)]/10 px-2.5 py-1 text-xs font-medium text-[var(--accent)]">
+          <Award size={12} />
+          {project.award}
+        </span>
+      )}
       <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-[var(--text-soft)]">
         {project.bullets.map((b, idx) => (
           <li key={idx}>{b}</li>
