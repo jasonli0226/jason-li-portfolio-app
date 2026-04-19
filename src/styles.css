@@ -171,13 +171,15 @@ body::after {
   mask-image: radial-gradient(ellipse at 50% 0%, black, transparent 70%);
 }
 
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
+@layer base {
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
 
-a:hover {
-  color: var(--accent-soft);
+  a:hover {
+    color: var(--accent-soft);
+  }
 }
 
 .page-wrap {
