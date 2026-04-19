@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import About from '../sections/About'
 import Awards from '../sections/Awards'
 import Contact from '../sections/Contact'
-import Experience from '../sections/Experience'
+// import Experience from '../sections/Experience'
 import Hero from '../sections/Hero'
 import Projects from '../sections/Projects'
 import Research from '../sections/Research'
@@ -15,7 +15,7 @@ function HomePage() {
     <main>
       <Hero />
       <About />
-      <Experience />
+      {/* <Experience /> */}
       <Projects />
       <Skills />
       <Research />

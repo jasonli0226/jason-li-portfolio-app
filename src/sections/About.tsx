@@ -26,13 +26,14 @@ export default function About() {
                     <p className="font-semibold text-[var(--text)]">
                       {school.school}
                     </p>
-                    <ul className="mt-2 space-y-1 text-[var(--text-muted)]">
+                    <ul className="mt-2 space-y-2 text-[var(--text-muted)]">
                       {school.degrees.map((d) => (
-                        <li key={d.name}>
-                          {d.name}{' '}
-                          <span className="text-[var(--text-muted)]">
-                            · {d.years}
-                          </span>
+                        <li key={`${d.level}-${d.field}`}>
+                          <p className="text-[var(--text)]">{d.level}</p>
+                          <p>{d.field}</p>
+                          <p className="text-xs text-[var(--text-muted)]">
+                            {d.years}
+                          </p>
                         </li>
                       ))}
                     </ul>
