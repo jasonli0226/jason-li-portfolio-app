@@ -1,5 +1,4 @@
-import { useInView } from '../hooks/useInView'
-import { cn } from '../lib/utils'
+import { motion, useReducedMotion } from 'framer-motion'
 import type { ReactNode } from 'react'
 
 type FadeInProps = {
@@ -9,32 +8,33 @@ type FadeInProps = {
   className?: string
 }
 
-const DELAY_CLASS: Record<number, string> = {
-  0: 'delay-0',
-  100: 'delay-100',
-  200: 'delay-200',
-  300: 'delay-300',
-  400: 'delay-400',
-}
-
 export default function FadeIn({
   children,
   delay = 0,
-  as: Tag = 'div',
+  as = 'div',
   className,
 }: FadeInProps) {
-  const [ref, inView] = useInView<HTMLElement>()
+  const shouldReduceMotion = useReducedMotion()
+  const MotionTag = motion[as] as typeof motion.div
+
+  if (shouldReduceMotion) {
+    const Tag = as as 'div'
+    return <Tag className={className}>{children}</Tag>
+  }
+
   return (
-    <Tag
-      ref={ref as any}
-      className={cn(
-        'transition-all duration-500 ease-out',
-        DELAY_CLASS[delay],
-        inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3',
-        className,
-      )}
+    <MotionTag
+      className={className}
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '0px 0px -10% 0px' }}
+      transition={{
+        duration: 0.5,
+        ease: 'easeOut',
+        delay: delay / 1000,
+      }}
     >
       {children}
-    </Tag>
+    </MotionTag>
   )
 }
