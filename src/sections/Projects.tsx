@@ -6,16 +6,29 @@ import SectionHeading from '../components/SectionHeading'
 import { projects } from '../data/projects'
 import type { Project } from '../data/projects'
 
-function ProjectCard({ project, featured }: { project: Project; featured?: boolean }) {
+function ProjectCard({
+  project,
+  featured,
+}: {
+  project: Project
+  featured?: boolean
+}) {
   return (
     <div
       className={
         'surface-card flex h-full flex-col p-6 ' +
-        (featured ? 'border-[var(--accent)]/40 ring-1 ring-[var(--accent)]/20' : '')
+        (featured
+          ? 'border-[var(--accent)]/40 ring-1 ring-[var(--accent)]/20'
+          : '')
       }
     >
       <div className="flex items-start justify-between gap-3">
-        <h3 className={'font-semibold text-[var(--text)] ' + (featured ? 'text-xl' : 'text-lg')}>
+        <h3
+          className={
+            'font-semibold text-[var(--text)] ' +
+            (featured ? 'text-xl' : 'text-lg')
+          }
+        >
           {project.title}
         </h3>
         {project.award && (
@@ -32,7 +45,11 @@ function ProjectCard({ project, featured }: { project: Project; featured?: boole
       </ul>
       <div className="mt-5 flex flex-wrap gap-2">
         {project.badges.map((b) => (
-          <Badge key={b} variant="outline" className="border-[var(--chip-line)] text-[var(--text-soft)]">
+          <Badge
+            key={b}
+            variant="outline"
+            className="border-[var(--chip-line)] text-[var(--text-soft)]"
+          >
             {b}
           </Badge>
         ))}

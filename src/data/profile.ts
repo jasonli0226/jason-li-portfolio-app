@@ -16,13 +16,21 @@ export const profile = {
     {
       school: 'Chinese University of Hong Kong',
       degrees: [
-        { name: 'Master of Science in Information Engineering', years: '2021 – 2023' },
-        { name: "Bachelor's Degree in Information Engineering", years: '2017 – 2019' },
+        {
+          name: 'Master of Science in Information Engineering',
+          years: '2021 – 2023',
+        },
+        {
+          name: "Bachelor's Degree in Information Engineering",
+          years: '2017 – 2019',
+        },
       ],
     },
     {
       school: 'Monash University, Melbourne',
-      degrees: [{ name: "Bachelor's Degree in Psychology and Business", years: '2012' }],
+      degrees: [
+        { name: "Bachelor's Degree in Psychology and Business", years: '2012' },
+      ],
     },
   ],
 } as const

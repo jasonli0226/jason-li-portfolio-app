@@ -14,7 +14,10 @@ class MockIntersectionObserver {
   rootMargin = ''
   thresholds = []
   trigger(entries: Array<Partial<IntersectionObserverEntry>>) {
-    this.callback(entries as IntersectionObserverEntry[], this as unknown as IntersectionObserver)
+    this.callback(
+      entries as IntersectionObserverEntry[],
+      this as unknown as IntersectionObserver,
+    )
   }
 }
 

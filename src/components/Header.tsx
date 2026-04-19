@@ -34,7 +34,10 @@ export default function Header() {
       }
     >
       <nav className="page-wrap flex items-center justify-between gap-4 py-3 sm:py-4">
-        <a href="#hero" className="flex items-center gap-2 text-base font-bold text-[var(--text)]">
+        <a
+          href="#hero"
+          className="flex items-center gap-2 text-base font-bold text-[var(--text)]"
+        >
           <span className="inline-block h-2 w-2 rounded-full bg-[var(--accent)]" />
           {profile.shortName}
         </a>

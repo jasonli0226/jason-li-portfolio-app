@@ -16,50 +16,50 @@
 
 **New files:**
 
-| Path | Purpose |
-|---|---|
-| `vitest.config.ts` | Vitest config (jsdom, setup file) |
-| `src/test/setup.ts` | jest-dom matchers, JSDOM IntersectionObserver mock |
-| `src/hooks/useInView.ts` | IntersectionObserver hook |
-| `src/hooks/useInView.test.ts` | Unit tests for hook |
-| `src/components/FadeIn.tsx` | Wrapper applying fade/slide-up on view |
-| `src/components/FadeIn.test.tsx` | Smoke test |
-| `src/components/SectionHeading.tsx` | Shared kicker + h2 |
-| `src/components/ui/button.tsx` | shadcn Button (added via CLI) |
-| `src/components/ui/badge.tsx` | shadcn Badge (added via CLI) |
-| `src/components/ui/card.tsx` | shadcn Card (added via CLI) |
-| `src/data/profile.ts` | Name, title, summary, links |
-| `src/data/skills.ts` | Grouped skill categories |
-| `src/data/experience.ts` | Roles with bullets |
-| `src/data/projects.ts` | Featured projects |
-| `src/data/research.ts` | Research projects |
-| `src/data/awards.ts` | Awards + publications |
-| `src/sections/Hero.tsx` | Hero |
-| `src/sections/About.tsx` | About |
-| `src/sections/Skills.tsx` | Skills |
-| `src/sections/Experience.tsx` | Experience timeline |
-| `src/sections/Projects.tsx` | Projects (Clawix featured) |
-| `src/sections/Research.tsx` | Research grid |
-| `src/sections/Awards.tsx` | Awards + publications |
-| `src/sections/Contact.tsx` | Contact (mailto + socials) |
-| `src/sections/__tests__/Hero.test.tsx` | Smoke test |
-| `src/sections/__tests__/Projects.test.tsx` | Smoke test (Clawix prominence) |
+| Path                                       | Purpose                                            |
+| ------------------------------------------ | -------------------------------------------------- |
+| `vitest.config.ts`                         | Vitest config (jsdom, setup file)                  |
+| `src/test/setup.ts`                        | jest-dom matchers, JSDOM IntersectionObserver mock |
+| `src/hooks/useInView.ts`                   | IntersectionObserver hook                          |
+| `src/hooks/useInView.test.ts`              | Unit tests for hook                                |
+| `src/components/FadeIn.tsx`                | Wrapper applying fade/slide-up on view             |
+| `src/components/FadeIn.test.tsx`           | Smoke test                                         |
+| `src/components/SectionHeading.tsx`        | Shared kicker + h2                                 |
+| `src/components/ui/button.tsx`             | shadcn Button (added via CLI)                      |
+| `src/components/ui/badge.tsx`              | shadcn Badge (added via CLI)                       |
+| `src/components/ui/card.tsx`               | shadcn Card (added via CLI)                        |
+| `src/data/profile.ts`                      | Name, title, summary, links                        |
+| `src/data/skills.ts`                       | Grouped skill categories                           |
+| `src/data/experience.ts`                   | Roles with bullets                                 |
+| `src/data/projects.ts`                     | Featured projects                                  |
+| `src/data/research.ts`                     | Research projects                                  |
+| `src/data/awards.ts`                       | Awards + publications                              |
+| `src/sections/Hero.tsx`                    | Hero                                               |
+| `src/sections/About.tsx`                   | About                                              |
+| `src/sections/Skills.tsx`                  | Skills                                             |
+| `src/sections/Experience.tsx`              | Experience timeline                                |
+| `src/sections/Projects.tsx`                | Projects (Clawix featured)                         |
+| `src/sections/Research.tsx`                | Research grid                                      |
+| `src/sections/Awards.tsx`                  | Awards + publications                              |
+| `src/sections/Contact.tsx`                 | Contact (mailto + socials)                         |
+| `src/sections/__tests__/Hero.test.tsx`     | Smoke test                                         |
+| `src/sections/__tests__/Projects.test.tsx` | Smoke test (Clawix prominence)                     |
 
 **Modified files:**
 
-| Path | Change |
-|---|---|
-| `src/styles.css` | Replace lagoon palette with navy/cyan; replace Manrope/Fraunces with Inter |
-| `src/routes/__root.tsx` | New meta tags, default-dark bootstrap script |
-| `src/components/ThemeToggle.tsx` | Default mode `'dark'` instead of `'auto'` |
-| `src/components/Header.tsx` | Rewrite as portfolio nav with anchor links + GitHub icon |
-| `src/components/Footer.tsx` | Rewrite with copyright + social icons |
-| `src/routes/index.tsx` | Compose all sections |
+| Path                             | Change                                                                     |
+| -------------------------------- | -------------------------------------------------------------------------- |
+| `src/styles.css`                 | Replace lagoon palette with navy/cyan; replace Manrope/Fraunces with Inter |
+| `src/routes/__root.tsx`          | New meta tags, default-dark bootstrap script                               |
+| `src/components/ThemeToggle.tsx` | Default mode `'dark'` instead of `'auto'`                                  |
+| `src/components/Header.tsx`      | Rewrite as portfolio nav with anchor links + GitHub icon                   |
+| `src/components/Footer.tsx`      | Rewrite with copyright + social icons                                      |
+| `src/routes/index.tsx`           | Compose all sections                                                       |
 
 **Deleted files:**
 
-| Path | Reason |
-|---|---|
+| Path                   | Reason                                   |
+| ---------------------- | ---------------------------------------- |
 | `src/routes/about.tsx` | Single-page design, no separate `/about` |
 
 ---
@@ -67,6 +67,7 @@
 ## Task 0: Set up Vitest + Testing Library
 
 **Files:**
+
 - Create: `vitest.config.ts`
 - Create: `src/test/setup.ts`
 
@@ -117,7 +118,10 @@ class MockIntersectionObserver {
   rootMargin = ''
   thresholds = []
   trigger(entries: Array<Partial<IntersectionObserverEntry>>) {
-    this.callback(entries as IntersectionObserverEntry[], this as unknown as IntersectionObserver)
+    this.callback(
+      entries as IntersectionObserverEntry[],
+      this as unknown as IntersectionObserver,
+    )
   }
 }
 
@@ -161,6 +165,7 @@ git commit -m "chore: configure vitest with jsdom and IntersectionObserver mock"
 ## Task 1: Rewrite `styles.css` with navy/cyan palette + Inter
 
 **Files:**
+
 - Modify: `src/styles.css` (full rewrite)
 
 - [ ] **Step 1: Replace `src/styles.css` entirely with the new palette**
@@ -186,9 +191,9 @@ Overwrite `src/styles.css`:
   --text: #0f172a;
   --text-soft: #475569;
   --text-muted: #64748b;
-  --accent: #0891b2;        /* cyan-600 */
-  --accent-soft: #06b6d4;   /* cyan-500 */
-  --accent-2: #2563eb;      /* blue-600 */
+  --accent: #0891b2; /* cyan-600 */
+  --accent-soft: #06b6d4; /* cyan-500 */
+  --accent-2: #2563eb; /* blue-600 */
   --header-bg: rgba(248, 250, 252, 0.8);
   --chip-bg: rgba(255, 255, 255, 0.75);
   --chip-line: rgba(8, 145, 178, 0.25);
@@ -229,9 +234,9 @@ Overwrite `src/styles.css`:
   --text: #e2e8f0;
   --text-soft: #94a3b8;
   --text-muted: #64748b;
-  --accent: #22d3ee;        /* cyan-400 */
-  --accent-soft: #06b6d4;   /* cyan-500 */
-  --accent-2: #60a5fa;      /* blue-400 */
+  --accent: #22d3ee; /* cyan-400 */
+  --accent-soft: #06b6d4; /* cyan-500 */
+  --accent-2: #60a5fa; /* blue-400 */
   --header-bg: rgba(5, 8, 15, 0.7);
   --chip-bg: rgba(255, 255, 255, 0.04);
   --chip-line: rgba(34, 211, 238, 0.3);
@@ -390,6 +395,7 @@ git commit -m "style: replace lagoon palette with navy/cyan dark theme + Inter f
 ## Task 2: Update `__root.tsx` with portfolio meta + dark default
 
 **Files:**
+
 - Modify: `src/routes/__root.tsx`
 
 - [ ] **Step 1: Replace `__root.tsx`**
@@ -462,6 +468,7 @@ git commit -m "feat: portfolio meta tags and dark-mode default theme bootstrap"
 ## Task 3: Default `ThemeToggle` to dark mode
 
 **Files:**
+
 - Modify: `src/components/ThemeToggle.tsx`
 
 - [ ] **Step 1: Replace `ThemeToggle.tsx` with simplified dark/light toggle (drop `auto`)**
@@ -534,6 +541,7 @@ git commit -m "feat: simplify ThemeToggle to dark/light with lucide icons"
 ## Task 4: `useInView` IntersectionObserver hook (TDD)
 
 **Files:**
+
 - Create: `src/hooks/useInView.ts`
 - Create: `src/hooks/useInView.test.ts`
 
@@ -553,8 +561,15 @@ describe('useInView', () => {
   it('returns inView=true once observer fires with isIntersecting', () => {
     let observer: any
     const OriginalIO = window.IntersectionObserver
-    ;(window as any).IntersectionObserver = vi.fn(function (cb: IntersectionObserverCallback) {
-      observer = { cb, observe: vi.fn(), unobserve: vi.fn(), disconnect: vi.fn() }
+    ;(window as any).IntersectionObserver = vi.fn(function (
+      cb: IntersectionObserverCallback,
+    ) {
+      observer = {
+        cb,
+        observe: vi.fn(),
+        unobserve: vi.fn(),
+        disconnect: vi.fn(),
+      }
       return observer
     })
 
@@ -568,7 +583,6 @@ describe('useInView', () => {
       observer.cb([{ isIntersecting: true, target: div }] as any)
     })
     expect(result.current[1]).toBe(true)
-
     ;(window as any).IntersectionObserver = OriginalIO
   })
 })
@@ -595,33 +609,40 @@ export type UseInViewOptions = {
 export function useInView<T extends Element>(
   options: UseInViewOptions = {},
 ): [(node: T | null) => void, boolean] {
-  const { threshold = 0.15, rootMargin = '0px 0px -10% 0px', once = true } = options
+  const {
+    threshold = 0.15,
+    rootMargin = '0px 0px -10% 0px',
+    once = true,
+  } = options
   const [inView, setInView] = useState(false)
   const elementRef = useRef<T | null>(null)
   const observerRef = useRef<IntersectionObserver | null>(null)
 
-  const setRef = useCallback((node: T | null) => {
-    if (observerRef.current) {
-      observerRef.current.disconnect()
-      observerRef.current = null
-    }
-    elementRef.current = node
-    if (node) {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setInView(true)
-            if (once) observer.disconnect()
-          } else if (!once) {
-            setInView(false)
-          }
-        },
-        { threshold, rootMargin },
-      )
-      observer.observe(node)
-      observerRef.current = observer
-    }
-  }, [threshold, rootMargin, once])
+  const setRef = useCallback(
+    (node: T | null) => {
+      if (observerRef.current) {
+        observerRef.current.disconnect()
+        observerRef.current = null
+      }
+      elementRef.current = node
+      if (node) {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              setInView(true)
+              if (once) observer.disconnect()
+            } else if (!once) {
+              setInView(false)
+            }
+          },
+          { threshold, rootMargin },
+        )
+        observer.observe(node)
+        observerRef.current = observer
+      }
+    },
+    [threshold, rootMargin, once],
+  )
 
   useEffect(() => () => observerRef.current?.disconnect(), [])
 
@@ -646,6 +667,7 @@ git commit -m "feat: add useInView IntersectionObserver hook"
 ## Task 5: `FadeIn` component
 
 **Files:**
+
 - Create: `src/components/FadeIn.tsx`
 - Create: `src/components/FadeIn.test.tsx`
 
@@ -658,12 +680,20 @@ import FadeIn from './FadeIn'
 
 describe('FadeIn', () => {
   it('renders children', () => {
-    render(<FadeIn><span>hello</span></FadeIn>)
+    render(
+      <FadeIn>
+        <span>hello</span>
+      </FadeIn>,
+    )
     expect(screen.getByText('hello')).toBeInTheDocument()
   })
 
   it('applies the initial hidden classes', () => {
-    const { container } = render(<FadeIn><span>x</span></FadeIn>)
+    const { container } = render(
+      <FadeIn>
+        <span>x</span>
+      </FadeIn>,
+    )
     const wrapper = container.firstElementChild as HTMLElement
     expect(wrapper.className).toContain('opacity-0')
     expect(wrapper.className).toContain('translate-y-3')
@@ -738,6 +768,7 @@ git commit -m "feat: add FadeIn wrapper using useInView"
 ## Task 6: `SectionHeading` component
 
 **Files:**
+
 - Create: `src/components/SectionHeading.tsx`
 
 - [ ] **Step 1: Implement**
@@ -762,7 +793,9 @@ export default function SectionHeading({
   className,
 }: SectionHeadingProps) {
   return (
-    <header className={cn('mb-10', align === 'center' && 'text-center', className)}>
+    <header
+      className={cn('mb-10', align === 'center' && 'text-center', className)}
+    >
       {kicker && <p className="kicker mb-3">{kicker}</p>}
       <h2 className="text-3xl font-bold tracking-tight text-[var(--text)] sm:text-4xl">
         {title}
@@ -794,6 +827,7 @@ git commit -m "feat: add SectionHeading shared component"
 ## Task 7: Add shadcn `button`, `badge`, `card`
 
 **Files:**
+
 - Create: `src/components/ui/button.tsx` (via CLI)
 - Create: `src/components/ui/badge.tsx` (via CLI)
 - Create: `src/components/ui/card.tsx` (via CLI)
@@ -820,6 +854,7 @@ git commit -m "feat: add shadcn button, badge, and card components"
 ## Task 8: `data/profile.ts`
 
 **Files:**
+
 - Create: `src/data/profile.ts`
 
 - [ ] **Step 1: Implement**
@@ -843,13 +878,21 @@ export const profile = {
     {
       school: 'Chinese University of Hong Kong',
       degrees: [
-        { name: 'Master of Science in Information Engineering', years: '2021 – 2023' },
-        { name: "Bachelor's Degree in Information Engineering", years: '2017 – 2019' },
+        {
+          name: 'Master of Science in Information Engineering',
+          years: '2021 – 2023',
+        },
+        {
+          name: "Bachelor's Degree in Information Engineering",
+          years: '2017 – 2019',
+        },
       ],
     },
     {
       school: 'Monash University, Melbourne',
-      degrees: [{ name: "Bachelor's Degree in Psychology and Business", years: '2012' }],
+      degrees: [
+        { name: "Bachelor's Degree in Psychology and Business", years: '2012' },
+      ],
     },
   ],
 } as const
@@ -867,6 +910,7 @@ git commit -m "feat: add profile data"
 ## Task 9: `data/skills.ts`
 
 **Files:**
+
 - Create: `src/data/skills.ts`
 
 - [ ] **Step 1: Implement**
@@ -960,6 +1004,7 @@ git commit -m "feat: add skills data with lucide icons"
 ## Task 10: `data/experience.ts`
 
 **Files:**
+
 - Create: `src/data/experience.ts`
 
 - [ ] **Step 1: Implement**
@@ -1015,6 +1060,7 @@ git commit -m "feat: add experience data"
 ## Task 11: `data/projects.ts`
 
 **Files:**
+
 - Create: `src/data/projects.ts`
 
 - [ ] **Step 1: Implement**
@@ -1034,7 +1080,8 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: 'Clawix: Open-Source Self-Hosted Multi-Agent AI Orchestration Platform',
+    title:
+      'Clawix: Open-Source Self-Hosted Multi-Agent AI Orchestration Platform',
     category: 'agentic',
     featured: true,
     github: 'https://github.com/ClawixAI/clawix',
@@ -1046,9 +1093,18 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: 'EAI-Powered Psychological Analysis Platform for Video Consultation Sessions',
+    title:
+      'EAI-Powered Psychological Analysis Platform for Video Consultation Sessions',
     category: 'agentic',
-    badges: ['Next.js', 'FastAPI', 'PostgreSQL', 'MinIO', 'Whisper', 'Computer Vision', 'Health-Tech'],
+    badges: [
+      'Next.js',
+      'FastAPI',
+      'PostgreSQL',
+      'MinIO',
+      'Whisper',
+      'Computer Vision',
+      'Health-Tech',
+    ],
     bullets: [
       'Architected end-to-end multi-modal AI data pipeline and Agentic AI orchestration platform for healthcare/psychological mentoring: integrated Whisper transcription, computer vision (posture analysis), LLM psychological assessment, speaker diarization, and automated PDF report generation.',
       'Built secure, role-based full-stack architecture (Next.js + FastAPI + PostgreSQL + MinIO + Docker) with governed data flows, supporting healthcare providers and AI-generated insights.',
@@ -1063,7 +1119,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: 'Analysis of Industrial Machine Vibration Using Multi-Modal Data Fusion and Transformer',
+    title:
+      'Analysis of Industrial Machine Vibration Using Multi-Modal Data Fusion and Transformer',
     category: 'aiot',
     award: 'Best Paper Award – Euro Academic Conference',
     badges: ['PyTorch', 'Transformer', 'EMD', 'GAF', 'IoT'],
@@ -1072,7 +1129,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: 'LUCID: Resolving Attribution Diffusion in Explainable AI for PCA-Reduced Feature Spaces',
+    title:
+      'LUCID: Resolving Attribution Diffusion in Explainable AI for PCA-Reduced Feature Spaces',
     category: 'aiot',
     award: 'HKIE Paper 2026',
     badges: ['XAI', 'SHAP', 'PCA', 'Explainability'],
@@ -1095,6 +1153,7 @@ git commit -m "feat: add projects data with Clawix featured"
 ## Task 12: `data/research.ts`
 
 **Files:**
+
 - Create: `src/data/research.ts`
 
 - [ ] **Step 1: Implement**
@@ -1108,7 +1167,8 @@ export type ResearchProject = {
 
 export const research: ResearchProject[] = [
   {
-    title: 'Multivariate Time Series Vibration Analysis Using Deep Learning Approaches',
+    title:
+      'Multivariate Time Series Vibration Analysis Using Deep Learning Approaches',
     context: 'Research Project with WPI University, USA',
     description:
       'Led development of LSTM and Transformer architectures for multivariate time series vibration data analysis, improving predictive maintenance and anomaly detection.',
@@ -1140,6 +1200,7 @@ git commit -m "feat: add research projects data"
 ## Task 13: `data/awards.ts`
 
 **Files:**
+
 - Create: `src/data/awards.ts`
 
 - [ ] **Step 1: Implement**
@@ -1160,10 +1221,16 @@ export type Publication = {
 
 export const awards: Award[] = [
   { title: 'Best Paper Award at NCTA Conference', year: '2024' },
-  { title: 'Gold Medal – International Exhibition of Inventions of Geneva', year: '2024' },
+  {
+    title: 'Gold Medal – International Exhibition of Inventions of Geneva',
+    year: '2024',
+  },
   { title: 'Presenter at FCNDT Conference', year: '2024' },
   { title: 'Certified Instructor, NVIDIA Deep Learning Institute (DLI)' },
-  { title: 'Recipient of the Academic Performance Award at CUHK', year: '2022' },
+  {
+    title: 'Recipient of the Academic Performance Award at CUHK',
+    year: '2022',
+  },
   { title: 'Finalist in the Cathay Pacific Hackathon', year: '2017' },
 ]
 
@@ -1196,6 +1263,7 @@ git commit -m "feat: add awards and publications data"
 ## Task 14: Rewrite `Header.tsx` (portfolio nav)
 
 **Files:**
+
 - Modify: `src/components/Header.tsx` (full rewrite)
 
 - [ ] **Step 1: Rewrite**
@@ -1237,7 +1305,10 @@ export default function Header() {
       }
     >
       <nav className="page-wrap flex items-center justify-between gap-4 py-3 sm:py-4">
-        <a href="#hero" className="flex items-center gap-2 text-base font-bold text-[var(--text)]">
+        <a
+          href="#hero"
+          className="flex items-center gap-2 text-base font-bold text-[var(--text)]"
+        >
           <span className="inline-block h-2 w-2 rounded-full bg-[var(--accent)]" />
           {profile.shortName}
         </a>
@@ -1314,6 +1385,7 @@ git commit -m "feat: rewrite Header as portfolio nav with anchor links and mobil
 ## Task 15: Rewrite `Footer.tsx`
 
 **Files:**
+
 - Modify: `src/components/Footer.tsx` (full rewrite)
 
 - [ ] **Step 1: Rewrite**
@@ -1381,6 +1453,7 @@ git commit -m "feat: rewrite Footer with copyright and social icons"
 ## Task 16: `Hero` section
 
 **Files:**
+
 - Create: `src/sections/Hero.tsx`
 - Create: `src/sections/__tests__/Hero.test.tsx`
 
@@ -1400,8 +1473,13 @@ describe('Hero', () => {
 
   it('shows View Projects and Contact CTA links', () => {
     render(<Hero />)
-    expect(screen.getByRole('link', { name: /view projects/i })).toHaveAttribute('href', '#projects')
-    expect(screen.getByRole('link', { name: /contact me/i })).toHaveAttribute('href', '#contact')
+    expect(
+      screen.getByRole('link', { name: /view projects/i }),
+    ).toHaveAttribute('href', '#projects')
+    expect(screen.getByRole('link', { name: /contact me/i })).toHaveAttribute(
+      'href',
+      '#contact',
+    )
   })
 })
 ```
@@ -1496,6 +1574,7 @@ git commit -m "feat: add Hero section"
 ## Task 17: `About` section
 
 **Files:**
+
 - Create: `src/sections/About.tsx`
 
 - [ ] **Step 1: Implement**
@@ -1526,11 +1605,16 @@ export default function About() {
               <div className="grid gap-3 pt-4 text-sm sm:grid-cols-2">
                 {profile.education.map((school) => (
                   <div key={school.school} className="surface-card p-4">
-                    <p className="font-semibold text-[var(--text)]">{school.school}</p>
+                    <p className="font-semibold text-[var(--text)]">
+                      {school.school}
+                    </p>
                     <ul className="mt-2 space-y-1 text-[var(--text-muted)]">
                       {school.degrees.map((d) => (
                         <li key={d.name}>
-                          {d.name} <span className="text-[var(--text-muted)]">· {d.years}</span>
+                          {d.name}{' '}
+                          <span className="text-[var(--text-muted)]">
+                            · {d.years}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -1563,6 +1647,7 @@ git commit -m "feat: add About section with JL placeholder and education cards"
 ## Task 18: `Skills` section
 
 **Files:**
+
 - Create: `src/sections/Skills.tsx`
 
 - [ ] **Step 1: Implement**
@@ -1582,7 +1667,7 @@ export default function Skills() {
           {skillCategories.map((category, i) => {
             const Icon = category.icon
             return (
-              <FadeIn key={category.title} delay={(i % 2) * 100 as 0 | 100}>
+              <FadeIn key={category.title} delay={((i % 2) * 100) as 0 | 100}>
                 <div className="surface-card h-full p-6">
                   <div className="mb-4 flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--accent)]/10 text-[var(--accent)]">
@@ -1631,6 +1716,7 @@ git commit -m "feat: add Skills section with grouped categories"
 ## Task 19: `Experience` section (timeline)
 
 **Files:**
+
 - Create: `src/sections/Experience.tsx`
 
 - [ ] **Step 1: Implement**
@@ -1647,7 +1733,11 @@ export default function Experience() {
         <SectionHeading kicker="Experience" title="Career timeline" />
         <ol className="relative space-y-8 border-l border-[var(--line)] pl-6 sm:pl-8">
           {experience.map((role, i) => (
-            <FadeIn key={role.company} delay={Math.min(i * 100, 300) as 0 | 100 | 200 | 300} as="li">
+            <FadeIn
+              key={role.company}
+              delay={Math.min(i * 100, 300) as 0 | 100 | 200 | 300}
+              as="li"
+            >
               <span
                 aria-hidden
                 className="absolute -left-[7px] mt-2 block h-3 w-3 rounded-full bg-[var(--accent)] ring-4 ring-[var(--bg-base)]"
@@ -1655,8 +1745,12 @@ export default function Experience() {
               <div className="surface-card p-6">
                 <div className="flex flex-wrap items-baseline justify-between gap-2">
                   <div>
-                    <h3 className="text-lg font-semibold text-[var(--text)]">{role.role}</h3>
-                    <p className="text-sm text-[var(--accent)]">{role.company}</p>
+                    <h3 className="text-lg font-semibold text-[var(--text)]">
+                      {role.role}
+                    </h3>
+                    <p className="text-sm text-[var(--accent)]">
+                      {role.company}
+                    </p>
                   </div>
                   <p className="text-xs font-medium uppercase tracking-wider text-[var(--text-muted)]">
                     {role.period}
@@ -1694,6 +1788,7 @@ git commit -m "feat: add Experience section with vertical timeline"
 ## Task 20: `Projects` section (Clawix featured)
 
 **Files:**
+
 - Create: `src/sections/Projects.tsx`
 - Create: `src/sections/__tests__/Projects.test.tsx`
 
@@ -1707,8 +1802,12 @@ import Projects from '../Projects'
 describe('Projects', () => {
   it('renders the LLM and AIoT subsection headings', () => {
     render(<Projects />)
-    expect(screen.getByText(/LLM, Agentic & Autonomous AI/i)).toBeInTheDocument()
-    expect(screen.getByText(/AIoT & Predictive Maintenance/i)).toBeInTheDocument()
+    expect(
+      screen.getByText(/LLM, Agentic & Autonomous AI/i),
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText(/AIoT & Predictive Maintenance/i),
+    ).toBeInTheDocument()
   })
 
   it('renders Clawix as featured with a GitHub link', () => {
@@ -1716,7 +1815,9 @@ describe('Projects', () => {
     expect(screen.getByText(/Clawix/i)).toBeInTheDocument()
     const clawixLink = screen
       .getAllByRole('link')
-      .find((a) => a.getAttribute('href') === 'https://github.com/ClawixAI/clawix')
+      .find(
+        (a) => a.getAttribute('href') === 'https://github.com/ClawixAI/clawix',
+      )
     expect(clawixLink).toBeDefined()
   })
 })
@@ -1738,16 +1839,29 @@ import SectionHeading from '../components/SectionHeading'
 import { projects } from '../data/projects'
 import type { Project } from '../data/projects'
 
-function ProjectCard({ project, featured }: { project: Project; featured?: boolean }) {
+function ProjectCard({
+  project,
+  featured,
+}: {
+  project: Project
+  featured?: boolean
+}) {
   return (
     <div
       className={
         'surface-card flex h-full flex-col p-6 ' +
-        (featured ? 'border-[var(--accent)]/40 ring-1 ring-[var(--accent)]/20' : '')
+        (featured
+          ? 'border-[var(--accent)]/40 ring-1 ring-[var(--accent)]/20'
+          : '')
       }
     >
       <div className="flex items-start justify-between gap-3">
-        <h3 className={'font-semibold text-[var(--text)] ' + (featured ? 'text-xl' : 'text-lg')}>
+        <h3
+          className={
+            'font-semibold text-[var(--text)] ' +
+            (featured ? 'text-xl' : 'text-lg')
+          }
+        >
           {project.title}
         </h3>
         {project.award && (
@@ -1764,7 +1878,11 @@ function ProjectCard({ project, featured }: { project: Project; featured?: boole
       </ul>
       <div className="mt-5 flex flex-wrap gap-2">
         {project.badges.map((b) => (
-          <Badge key={b} variant="outline" className="border-[var(--chip-line)] text-[var(--text-soft)]">
+          <Badge
+            key={b}
+            variant="outline"
+            className="border-[var(--chip-line)] text-[var(--text-soft)]"
+          >
             {b}
           </Badge>
         ))}
@@ -1843,6 +1961,7 @@ git commit -m "feat: add Projects section with Clawix featured"
 ## Task 21: `Research` section
 
 **Files:**
+
 - Create: `src/sections/Research.tsx`
 
 - [ ] **Step 1: Implement**
@@ -1864,7 +1983,9 @@ export default function Research() {
                 <p className="text-xs font-medium uppercase tracking-wider text-[var(--text-muted)]">
                   {r.context}
                 </p>
-                <h3 className="mt-2 text-base font-semibold text-[var(--text)]">{r.title}</h3>
+                <h3 className="mt-2 text-base font-semibold text-[var(--text)]">
+                  {r.title}
+                </h3>
                 <p className="mt-3 text-sm leading-relaxed text-[var(--text-soft)]">
                   {r.description}
                 </p>
@@ -1895,6 +2016,7 @@ git commit -m "feat: add Research section"
 ## Task 22: `Awards` section
 
 **Files:**
+
 - Create: `src/sections/Awards.tsx`
 
 - [ ] **Step 1: Implement**
@@ -1915,14 +2037,21 @@ export default function Awards() {
             <div className="surface-card h-full p-6">
               <div className="mb-4 flex items-center gap-2 text-[var(--accent)]">
                 <AwardIcon size={18} />
-                <h3 className="text-lg font-semibold text-[var(--text)]">Awards</h3>
+                <h3 className="text-lg font-semibold text-[var(--text)]">
+                  Awards
+                </h3>
               </div>
               <ul className="space-y-3">
                 {awards.map((a) => (
-                  <li key={a.title} className="text-sm leading-relaxed text-[var(--text-soft)]">
+                  <li
+                    key={a.title}
+                    className="text-sm leading-relaxed text-[var(--text-soft)]"
+                  >
                     <span className="text-[var(--text)]">{a.title}</span>
                     {a.year && (
-                      <span className="ml-2 text-[var(--text-muted)]">· {a.year}</span>
+                      <span className="ml-2 text-[var(--text-muted)]">
+                        · {a.year}
+                      </span>
                     )}
                   </li>
                 ))}
@@ -1933,11 +2062,16 @@ export default function Awards() {
             <div className="surface-card h-full p-6">
               <div className="mb-4 flex items-center gap-2 text-[var(--accent)]">
                 <BookOpen size={18} />
-                <h3 className="text-lg font-semibold text-[var(--text)]">Publications</h3>
+                <h3 className="text-lg font-semibold text-[var(--text)]">
+                  Publications
+                </h3>
               </div>
               <ul className="space-y-4">
                 {publications.map((p) => (
-                  <li key={p.title} className="text-sm leading-relaxed text-[var(--text-soft)]">
+                  <li
+                    key={p.title}
+                    className="text-sm leading-relaxed text-[var(--text-soft)]"
+                  >
                     <p className="text-[var(--text)]">{p.title}</p>
                     <p className="mt-1 text-[var(--text-muted)]">
                       {p.venue}
@@ -1982,6 +2116,7 @@ git commit -m "feat: add Awards section with publications"
 ## Task 23: `Contact` section
 
 **Files:**
+
 - Create: `src/sections/Contact.tsx`
 
 - [ ] **Step 1: Implement**
@@ -2057,6 +2192,7 @@ git commit -m "feat: add Contact section with mailto and socials"
 ## Task 24: Compose `routes/index.tsx`
 
 **Files:**
+
 - Modify: `src/routes/index.tsx` (full rewrite)
 
 - [ ] **Step 1: Rewrite**
@@ -2107,6 +2243,7 @@ git commit -m "feat: compose home page from all section components"
 ## Task 25: Delete `routes/about.tsx`
 
 **Files:**
+
 - Delete: `src/routes/about.tsx`
 - Modify: `src/routeTree.gen.ts` (regenerated automatically)
 
@@ -2167,6 +2304,7 @@ Expected: Build succeeds, no errors.
 Run: `pnpm preview` in background.
 
 Open `http://localhost:3000` (or whatever port preview reports) and check:
+
 - Dark mode is the default on first load.
 - Theme toggle switches dark↔light and persists across reload.
 - Navbar anchor links smooth-scroll to each section.

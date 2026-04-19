@@ -23,11 +23,16 @@ export default function About() {
               <div className="grid gap-3 pt-4 text-sm sm:grid-cols-2">
                 {profile.education.map((school) => (
                   <div key={school.school} className="surface-card p-4">
-                    <p className="font-semibold text-[var(--text)]">{school.school}</p>
+                    <p className="font-semibold text-[var(--text)]">
+                      {school.school}
+                    </p>
                     <ul className="mt-2 space-y-1 text-[var(--text-muted)]">
                       {school.degrees.map((d) => (
                         <li key={d.name}>
-                          {d.name} <span className="text-[var(--text-muted)]">· {d.years}</span>
+                          {d.name}{' '}
+                          <span className="text-[var(--text-muted)]">
+                            · {d.years}
+                          </span>
                         </li>
                       ))}
                     </ul>

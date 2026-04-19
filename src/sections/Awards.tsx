@@ -13,14 +13,21 @@ export default function Awards() {
             <div className="surface-card h-full p-6">
               <div className="mb-4 flex items-center gap-2 text-[var(--accent)]">
                 <AwardIcon size={18} />
-                <h3 className="text-lg font-semibold text-[var(--text)]">Awards</h3>
+                <h3 className="text-lg font-semibold text-[var(--text)]">
+                  Awards
+                </h3>
               </div>
               <ul className="space-y-3">
                 {awards.map((a) => (
-                  <li key={a.title} className="text-sm leading-relaxed text-[var(--text-soft)]">
+                  <li
+                    key={a.title}
+                    className="text-sm leading-relaxed text-[var(--text-soft)]"
+                  >
                     <span className="text-[var(--text)]">{a.title}</span>
                     {a.year && (
-                      <span className="ml-2 text-[var(--text-muted)]">· {a.year}</span>
+                      <span className="ml-2 text-[var(--text-muted)]">
+                        · {a.year}
+                      </span>
                     )}
                   </li>
                 ))}
@@ -31,11 +38,16 @@ export default function Awards() {
             <div className="surface-card h-full p-6">
               <div className="mb-4 flex items-center gap-2 text-[var(--accent)]">
                 <BookOpen size={18} />
-                <h3 className="text-lg font-semibold text-[var(--text)]">Publications</h3>
+                <h3 className="text-lg font-semibold text-[var(--text)]">
+                  Publications
+                </h3>
               </div>
               <ul className="space-y-4">
                 {publications.map((p) => (
-                  <li key={p.title} className="text-sm leading-relaxed text-[var(--text-soft)]">
+                  <li
+                    key={p.title}
+                    className="text-sm leading-relaxed text-[var(--text-soft)]"
+                  >
                     <p className="text-[var(--text)]">{p.title}</p>
                     <p className="mt-1 text-[var(--text-muted)]">
                       {p.venue}

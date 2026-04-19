@@ -12,7 +12,8 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: 'Clawix: Open-Source Self-Hosted Multi-Agent AI Orchestration Platform',
+    title:
+      'Clawix: Open-Source Self-Hosted Multi-Agent AI Orchestration Platform',
     category: 'agentic',
     featured: true,
     github: 'https://github.com/ClawixAI/clawix',
@@ -24,9 +25,18 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: 'EAI-Powered Psychological Analysis Platform for Video Consultation Sessions',
+    title:
+      'EAI-Powered Psychological Analysis Platform for Video Consultation Sessions',
     category: 'agentic',
-    badges: ['Next.js', 'FastAPI', 'PostgreSQL', 'MinIO', 'Whisper', 'Computer Vision', 'Health-Tech'],
+    badges: [
+      'Next.js',
+      'FastAPI',
+      'PostgreSQL',
+      'MinIO',
+      'Whisper',
+      'Computer Vision',
+      'Health-Tech',
+    ],
     bullets: [
       'Architected end-to-end multi-modal AI data pipeline and Agentic AI orchestration platform for healthcare/psychological mentoring: integrated Whisper transcription, computer vision (posture analysis), LLM psychological assessment, speaker diarization, and automated PDF report generation.',
       'Built secure, role-based full-stack architecture (Next.js + FastAPI + PostgreSQL + MinIO + Docker) with governed data flows, supporting healthcare providers and AI-generated insights.',
@@ -41,7 +51,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: 'Analysis of Industrial Machine Vibration Using Multi-Modal Data Fusion and Transformer',
+    title:
+      'Analysis of Industrial Machine Vibration Using Multi-Modal Data Fusion and Transformer',
     category: 'aiot',
     award: 'Best Paper Award – Euro Academic Conference',
     badges: ['PyTorch', 'Transformer', 'EMD', 'GAF', 'IoT'],
@@ -50,7 +61,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: 'LUCID: Resolving Attribution Diffusion in Explainable AI for PCA-Reduced Feature Spaces',
+    title:
+      'LUCID: Resolving Attribution Diffusion in Explainable AI for PCA-Reduced Feature Spaces',
     category: 'aiot',
     award: 'HKIE Paper 2026',
     badges: ['XAI', 'SHAP', 'PCA', 'Explainability'],

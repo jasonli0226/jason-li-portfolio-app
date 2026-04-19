@@ -6,7 +6,8 @@ export type ResearchProject = {
 
 export const research: ResearchProject[] = [
   {
-    title: 'Multivariate Time Series Vibration Analysis Using Deep Learning Approaches',
+    title:
+      'Multivariate Time Series Vibration Analysis Using Deep Learning Approaches',
     context: 'Research Project with WPI University, USA',
     description:
       'Led development of LSTM and Transformer architectures for multivariate time series vibration data analysis, improving predictive maintenance and anomaly detection.',

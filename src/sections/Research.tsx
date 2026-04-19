@@ -14,7 +14,9 @@ export default function Research() {
                 <p className="text-xs font-medium uppercase tracking-wider text-[var(--text-muted)]">
                   {r.context}
                 </p>
-                <h3 className="mt-2 text-base font-semibold text-[var(--text)]">{r.title}</h3>
+                <h3 className="mt-2 text-base font-semibold text-[var(--text)]">
+                  {r.title}
+                </h3>
                 <p className="mt-3 text-sm leading-relaxed text-[var(--text-soft)]">
                   {r.description}
                 </p>

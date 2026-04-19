@@ -17,7 +17,9 @@ export default function SectionHeading({
   className,
 }: SectionHeadingProps) {
   return (
-    <header className={cn('mb-10', align === 'center' && 'text-center', className)}>
+    <header
+      className={cn('mb-10', align === 'center' && 'text-center', className)}
+    >
       {kicker && <p className="kicker mb-3">{kicker}</p>}
       <h2 className="text-3xl font-bold tracking-tight text-[var(--text)] sm:text-4xl">
         {title}
