@@ -14,13 +14,13 @@ export const research: ResearchProject[] = [
   },
   {
     title: 'Data In-painting for LiDAR Sensing using Deep Learning Approach',
-    context: 'MSc, Grade: 3.7/4.0',
+    context: 'MSc',
     description:
       'Implemented GAN + U-Net architecture for multi-modal sensor data in-painting to enhance LiDAR data quality.',
   },
   {
     title: 'Image Captioning with Deep Learning Approach',
-    context: "Bachelor's Final Year Project, Grade: 3.7/4.0",
+    context: "Bachelor's Final Year Project",
     description:
       'Developed CNN + RNN/LSTM model with attention mechanism for automated image captioning.',
   },
