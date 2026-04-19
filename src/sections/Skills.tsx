@@ -1,9 +1,22 @@
+import { motion, useReducedMotion } from 'framer-motion'
 import { Badge } from '../components/ui/badge'
 import FadeIn from '../components/FadeIn'
 import SectionHeading from '../components/SectionHeading'
 import { skillCategories } from '../data/skills'
 
+const chipContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.03 } },
+}
+
+const chipItem = {
+  hidden: { opacity: 0, y: 6 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: 'easeOut' } },
+}
+
 export default function Skills() {
+  const shouldReduceMotion = useReducedMotion()
+
   return (
     <section id="skills" className="px-4 py-20 sm:py-28">
       <div className="page-wrap">
@@ -22,17 +35,24 @@ export default function Skills() {
                       {category.title}
                     </h3>
                   </div>
-                  <div className="flex flex-wrap gap-2">
+                  <motion.div
+                    className="flex flex-wrap gap-2"
+                    variants={chipContainer}
+                    initial={shouldReduceMotion ? false : 'hidden'}
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '0px 0px -10% 0px' }}
+                  >
                     {category.items.map((item) => (
-                      <Badge
-                        key={item}
-                        variant="outline"
-                        className="border-[var(--chip-line)] text-[var(--text-soft)]"
-                      >
-                        {item}
-                      </Badge>
+                      <motion.div key={item} variants={chipItem}>
+                        <Badge
+                          variant="outline"
+                          className="border-[var(--chip-line)] text-[var(--text-soft)]"
+                        >
+                          {item}
+                        </Badge>
+                      </motion.div>
                     ))}
-                  </div>
+                  </motion.div>
                 </div>
               </FadeIn>
             )
