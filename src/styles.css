@@ -291,3 +291,40 @@ a:hover {
   animation: flagship-border-spin 6s linear infinite;
   transform-origin: center;
 }
+
+/* Project card hover: lift + soft cyan glow */
+.project-card {
+  transition:
+    transform 220ms ease-out,
+    box-shadow 220ms ease-out;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 28px -6px var(--accent);
+}
+
+/* Subtle press feedback on all primary/outline/ghost buttons */
+button:active:not(:disabled),
+a[role='button']:active {
+  transform: scale(0.97);
+  transition: transform 80ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-card:hover {
+    transform: none;
+    transition: none;
+    box-shadow: none;
+  }
+
+  button:active:not(:disabled),
+  a[role='button']:active {
+    transform: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
